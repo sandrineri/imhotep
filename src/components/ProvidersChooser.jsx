@@ -16,9 +16,9 @@ const ProvidersChooser = (props) => {
     const getProvidersValue = (values) => {
         //console.log('providers values: ', values);
         if (values !== null) 
-            props.setProviders( values.map(value => value.value) );
+            props.setAdProviders( values.map(value => value.value) );
         
-        else props.setProviders( [] );
+        else props.setAdProviders( [] );
     }
 
     return (

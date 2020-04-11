@@ -30,12 +30,16 @@ const App = () => {
     const [rentPrice, setRentPrice] = useState({minRentPrice: 500, maxRentPrice: 3000});
     const [buyPrice, setBuyPrice] = useState({ minBuyPrice: 200000, maxBuyPrice: 1000000 });
     const [size, setSize] = useState({ min: 30, max: 50 });
-    const [providers, setProviders] = useState([]);
+    const [adProviders, setAdProviders] = useState([]);
 
     // Set state from API
     useEffect(() => {
         //console.log(inputSearchValue);
-        fetch(`${settings.apiBasePath}?keywords=${JSON.stringify(inputSearchValue)}&startDate="${adDate.startDate}"&endDate="${adDate.endDate}"&minRentPrice=${rentPrice.minRentPrice}&maxRentPrice=${rentPrice.maxRentPrice}&minBuyPrice=${buyPrice.minBuyPrice}&maxBuyPrice=${buyPrice.maxBuyPrice}&minSurface=${size.min}&maxSurface=${size.max}&cp=${JSON.stringify(searchArea)}&providers=${JSON.stringify(providers)}`)
+        const keywords = JSON.stringify(inputSearchValue);
+        const cp = JSON.stringify(searchArea);
+        const providers = JSON.stringify(adProviders);
+
+        fetch(`${settings.apiBasePath}?keywords=${keywords}&startDate="${adDate.startDate}"&endDate="${adDate.endDate}"&minRentPrice=${rentPrice.minRentPrice}&maxRentPrice=${rentPrice.maxRentPrice}&minBuyPrice=${buyPrice.minBuyPrice}&maxBuyPrice=${buyPrice.maxBuyPrice}&minSurface=${size.min}&maxSurface=${size.max}&cp=${cp}&providers=${providers}`)
             .then(response => response.json())
             .then((response) => {
                 //console.log('fetch complete', response);
@@ -55,7 +59,7 @@ const App = () => {
                 setErrorMessage('Il est mort Jim');
             });
 
-    }, [inputSearchValue, searchArea, rentPrice, buyPrice, size, adDate, providers]);
+    }, [inputSearchValue, searchArea, rentPrice, buyPrice, size, adDate, adProviders]);
 
 
     // If state is not empty, loading of components
@@ -77,9 +81,9 @@ const App = () => {
                         setRentPrice={setRentPrice} />
                     <SizeChooser size={size} setSize={setSize} />
                     <DateChooser adDate={adDate} setAdDate={setAdDate} />
-                    <ProvidersChooser setProviders={setProviders} />
+                    <ProvidersChooser setAdProviders={setAdProviders} />
                 </div>
-                <NotificationsManager inputSearchValue={inputSearchValue} searchArea={searchArea} size={size} setSize={setSize} adDate={adDate} buyPrice={buyPrice} rentPrice={rentPrice} providers={providers} />
+                <NotificationsManager inputSearchValue={inputSearchValue} searchArea={searchArea} size={size} setSize={setSize} adDate={adDate} buyPrice={buyPrice} rentPrice={rentPrice} adProviders={adProviders} />
             </div>
             <RealEstateAds realEstateHitsArray={realEstateHitsArray} inputSearchValue={inputSearchValue} setInputSearchValue={setInputSearchValue} searchArea={searchArea} />
         </React.Fragment>

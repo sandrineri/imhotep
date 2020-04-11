@@ -33,7 +33,7 @@ const submitSendBtn = (props) => {
         'maxSurface': props.size.max,
         'startDate': props.adDate.startDate,
         'endDate': props.adDate.endDate,
-        'providers': props.providers
+        'providers': props.adProviders
     }
     console.log('Object to send: ', notificationsObject)
 }
