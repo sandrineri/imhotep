@@ -5,9 +5,39 @@ import './css/layout.scss';
 // import du framework React et de sa plateforme web ReactDOM
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Auth0Provider } from './auth/Auth0Wrapper';
+
+import settings from "./config/settings";
+import history from "./utils/history";
 
 // import du module jsx principal
 import App from './App';
 
+const onRedirectCallback = appState => {
+//     window.history.replaceState(
+//         {},
+//         document.title,
+//         appState && appState.targetUrl
+//             ? appState.targetUrl
+//             : window.location.pathname
+//     );
+// };
+    history.push(
+        appState && appState.targetUrl
+          ? appState.targetUrl
+          : window.location.pathname
+    );
+};
+
 // Rendu des éléments React dans le DOM
-ReactDOM.render(<App />, document.getElementById('immobilier'));
+ReactDOM.render(
+    <Auth0Provider
+        domain={settings.domain}
+        client_id={settings.client_id}
+        redirect_uri={window.location.origin}
+        onRedirectCallback={onRedirectCallback}
+    >
+        <App />
+    </Auth0Provider>, 
+    document.getElementById('immobilier')
+);
