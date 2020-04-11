@@ -1,54 +1,38 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Select from 'react-select';
 import makeAnimated from 'react-select/animated';
 
 const animatedComponents = makeAnimated();
 
-// const disabledInitialState = {
-//     disabled: false
-// }
-
-// const [valueDisabled, setvalueDisabled] = useState(disabledInitialState);
-
 const options = [
     { value: 'seloger', label: 'SeLoger' },
     { value: 'pap', label: 'PAP' },
-    { value: 'bon_coin', label: 'Leboncoin' },
-    { value: 'all', label: 'Tous' }
-]
+    { value: 'boncoin', label: 'Leboncoin' }
+];
 
 const ProvidersChooser = (props) => {
-    console.log('ProvidersChooser props: ', props);
-
     const getProvidersValue = (values) => {
-        //console.log('providers values: ', values);
-        if (values !== null) {
-            props.setProviders( values.map(value => value.value) )
-        }
-        else {
-            props.setProviders( [] );
-        };
-
-        // if ( values.includes('all') ) {
-        //     //console.log('plop');
-        //     setvalueDisabled({disabled: true});
-        // }
-    }
+        if (values !== null) props.setAdProviders(values.map(value => value.value));
+    };
 
     return (
-        <div className="options-container">
+        <div className="option-container">
+            <div className="option-sub">
+                <p className="option-label">Chercher sur les sites de location de votre choix</p>
+            </div>
             <Select
+                className="select"
                 isClearable
-                placeholder={'Sélectionnez le(s) site souhaité(s)'}
+                placeholder="Sélectionnez le(s) site(s) souhaité(s)"
                 closeMenuOnSelect={false}
                 components={animatedComponents}
                 isMulti
                 options={options}
-                //disabled={valueDisabled.disabled}
+                noOptionsMessage={() => null}
                 onChange={(values) => getProvidersValue(values)}
             />
         </div>
-    )
-}
+    );
+};
 
 export default ProvidersChooser;

@@ -9,14 +9,13 @@ import { normalAd, adWithoutDateMaj } from './mocks/mocks';
 configure({ adapter: new Adapter() });
 
 it('displays the ads correctly', () => {
-    const realEstateAds = mount(<RealEstateAds realEstateHitsArray={[normalAd]} inputSearchValue={["test"]} />);    
+    const realEstateAds = mount(<RealEstateAds realEstateAdsArray={[normalAd]} inputSearchValue={['test']} />);
     expect(realEstateAds.find('.real-ad-container').length).toEqual(1);
     expect(realEstateAds.find('.real-ad-container').html().includes('<h3>Immeuble ancien, au calme, parfait état !</h3>'));
 });
 
 
-
-it('displays the ads with appropriate size correctly', () => {
-    const realEstateAds = mount(<RealEstateAds realEstateHitsArray={[adWithoutDateMaj]} inputSearchValue={["test"]} />);
+it('displays the ads with appropriate surfaceArea correctly', () => {
+    const realEstateAds = mount(<RealEstateAds realEstateAdsArray={[adWithoutDateMaj]} inputSearchValue={['test']} />);
     expect(realEstateAds.find('.real-ad-container').length).toEqual(1);
 });

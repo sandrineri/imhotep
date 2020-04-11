@@ -1,64 +1,650 @@
+$fontSizeBig: 3.5rem;
+$primaryFont: Arial;
+$primaryFontSize: 1rem;
+$fontBaskervilleSerif: "Libre Baskerville", serif;
+$fontLatoSans: "Lato", sans-serif;
+$slidersHeight: 14px;
+$colorPetrol: #00677f;
+$colorPetrolDarker: #004355;
+$colorDarkRed: #71180c;
+$colorLightGrey: #e6e6e6;
+$colorLighterGrey: #f3f3f3;
+$borderRadius: 4px;
+
 html,
 body {
-    font-size: 16px;
-    margin: 0;
-    padding: 0;
+  font-family: $fontLatoSans;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style-type: none;
+}
+
+button {
+  font-family: $fontLatoSans;
+  font-size: 0.9rem;
+  color: #ffffff;
+  background: $colorPetrol;
+  border: 1px solid $colorPetrol;
+  padding: 0.5rem 0.8rem;
+  border-radius: $borderRadius;
+  letter-spacing: 0.1rem;
+  cursor: pointer;
+
+  &:hover {
+    font-weight: 600;
+    background-color: $colorDarkRed;
+  }
+}
+
+// NAVIGATION / CONNECT
+nav {
+  width: 100%;
+  height: 5vh;
+  padding: 0 1rem;
+  background-color: $colorPetrol;
+
+  p {
+    color: #ffffff;
+    margin: 0.5rem;
+  }
+
+  .connect-container {
+    .connect-btn {
+      margin-left: 0.5rem;
+
+      &:hover {
+        background: $colorDarkRed;
+      }
+
+      button {
+        border: none;
+        background: none;
+        padding: 0.5rem;
+      }
+    }
+  }
 }
 
 // HEADER
 header {
+  width: 100%;
+
+  .bg-welcome {
+    height: calc(100vh - 10vh);
+  }
+
+  .bg-real-ads {
+    height: 10vh;
+  }
+
+  .bg {
+    background-image: url("/images/paris-toits.jpg");
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
+    opacity: 0.6;
+  }
+
+  .title {
+    font-family: $fontBaskervilleSerif;
+    letter-spacing: 0.4rem;
+    color: #000000;
+    margin: 0 0 1rem 0;
     text-align: center;
-    background-color: black;
+
+    h1 {
+      margin: 0;
+      font-size: 3rem;
+    }
+  }
 }
 
-h1 {
-    letter-spacing: .2rem;
-    color: white;
+// ADS PAGE
+.main-container {
+  min-height: calc(100vh - 20vh);
+  background-color: $colorLighterGrey;
+}
+
+// SEARCH
+.choices-container-down,
+.choices-container-up {
+  max-height: 0;
+  overflow-y: hidden;
+  transition: max-height 1s ease-in-out;
+  margin: 1rem 0;
+}
+
+.choices-container-down {
+  max-height: 1500px;
+}
+
+.contain {
+  margin: 0.5rem 0;
+}
+
+.search-engine-container {
+  margin: 0 0.5rem;
+  background-color: #ffffff;
+  box-shadow: #0000001a 0px 10px 14px;
+  height: fit-content;
+
+  .options-container {
+    margin: 1.5rem 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .option-container {
+    margin: 1rem 0 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .option-label {
+    font-size: 1rem;
+  }
+
+  // SELECT
+  .select {
+    padding: 0.25rem;
+  }
+
+  .css-9gakcf-option {
+    background-color: $colorPetrol;
+  }
+
+  .css-1pahdxg-control {
+    border-color: $colorPetrol;
+    box-shadow: 0 0 0 1px $colorPetrol;
+
+    &:hover {
+      border-color: $colorPetrol;
+      box-shadow: 0 0 0 1px $colorPetrol;
+    }
+  }
+
+  // Sliders
+  .rc-slider {
+    height: 25px;
+    width: 90%;
+    margin: 0.5rem auto 1rem;
+  }
+
+  .rc-slider-rail {
+    height: $slidersHeight;
+  }
+
+  .rc-slider-track {
+    height: $slidersHeight;
+    background-color: $colorPetrol;
+  }
+
+  .rc-slider-handle {
+    height: 25px;
+    width: 8px;
+    border: 2px solid $colorDarkRed;
+    background-color: $colorDarkRed;
+    border-radius: 4px;
+
+    &:active,
+    &:hover,
+    &:focus {
+      border: 2px solid $colorDarkRed;
+      box-shadow: 0 0 5px $colorDarkRed;
+    }
+  }
+
+  .rc-slider-handle-click-focused {
+    border: 2px solid $colorDarkRed;
+    box-shadow: 0 0 5px $colorDarkRed;
+  }
+
+  .rc-slider-handle-dragging.rc-slider-handle-dragging.rc-slider-handle-dragging {
+    border-color: $colorDarkRed;
+    box-shadow: 0 0 0 5px $colorDarkRed;
+  }
+
+  .rc-slider-dot {
+    border-color: #c8c8c8;
+  }
+
+  .rc-slider-mark-text {
+    padding-top: 0.25rem;
+  }
+
+  // Datepicker
+  .DateRangePicker__CalendarSelection {
+    background-color: #00677f;
+    border: 1px solid #00677f;
+  }
+
+  .DateRangePicker__CalendarHighlight--single {
+    border: 1px solid #00677f;
+  }
+
+  .DateRangePicker__CalendarSelection--end {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    right: 0;
+  }
+}
+
+// SURFACE AREA
+.chosen {
+  margin: 0 0 0 1rem;
+  font-size: 0.9rem;
+
+  span {
+    font-size: $primaryFontSize;
+    color: $colorPetrol;
+    font-weight: 600;
+  }
+}
+
+// NOTIFICATION MANAGER
+.notif-alert {
+  width: fit-content;
+  margin: 2rem auto 1rem;
+  background-color: $colorPetrol;
+  border: 1px solid $colorPetrol;
+  border-radius: $borderRadius;
+  padding: 0.8rem;
+  letter-spacing: 0.1rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $colorDarkRed;
+    font-weight: 700;
+  }
+
+  p {
+    color: #ffffff;
     margin: 0;
-    padding: 4rem;
+  }
+}
+
+.drop-arrow,
+.close-options {
+  transform: rotate(0deg);
+}
+
+.drop-arrow {
+  transition: transform 0.2s linear;
+  width: 3rem;
+  height: 1.5rem;
+}
+
+.close-options {
+  transition: transform 1s linear;
+  margin: -1rem auto 0;
+
+  button {
+    background-color: #c8c8c8;
+    border: $colorLightGrey;
+    width: 6rem;
+    height: 2rem;
+    padding: 0;
+
+    &:hover {
+      background-color: $colorDarkRed;
+    }
+  }
+
+  img {
+    width: 3rem;
+    height: 1.7rem;
+  }
+}
+
+.drop-arrow-active {
+  transform: rotate(180deg);
+}
+
+.choices-arrow-up {
+  transform: rotate(180deg);
+  transition: transform 1s linear;
+}
+
+.notif-alert-choices-up,
+.notif-alert-choices-down {
+  max-height: 0;
+  overflow-y: hidden;
+  transition: max-height 0.5s ease-in-out;
+  margin: 1rem 0;
+
+  .select {
+    margin: 0 0 1rem 0;
+  }
+}
+
+.notif-alert-choices-down {
+  max-height: 20rem;
+  overflow-x: hidden;
+  overflow-y: visible;
+}
+
+.notif-btn {
+  margin: 2rem 0;
 }
 
 // MAP
-.map {
+.map-container {
+  .map {
     position: relative;
     width: 600px;
     height: 400px;
-    margin: 1rem;
+  }
 }
 
-// SEARCHENGINE
-.search-engine-container {
-    margin: auto 5rem;
-    //width: 50%;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 14px;
+// ADS
+.real-ads-container {
+  margin: 1rem 0 0;
+
+  .no-ads {
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .response-count {
+    text-align: center;
+    padding-top: 1rem;
+  }
 }
-
-// .options-container {
-//     margin: 1rem;
-//     width: 100%;
-// }
-
-// .option-label {
-//     margin: .5rem 0;
-// }
-
-// .searchbar-container {
-//     width: 50%;
-// }
-// #search-input {
-//     padding: .3rem 1rem;
-//     width: 100%;
-// }
-
 
 // AD
 .real-ad-container {
-    margin: 1rem 0;
-    padding: 1rem;
-    border: 1px solid black;
+  margin: 1rem;
+  padding-bottom: 0.5rem;
+  background-color: #ffffff;
+
+  .real-ad-sm-pic {
+    color: #000000;
+    border: none;
+    padding: 0;
+    border-radius: 0;
+    background: none;
+
+    img {
+      max-width: 100%;
+    }
+
+    .pic-text {
+      font-size: 1.2rem;
+      font-weight: 800;
+      border: 1px solid #000000;
+      background-color: $colorLightGrey;
+      margin: -2rem 0 0 0;
+      line-height: 1;
+      width: 20px;
+      height: 20px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+  }
+
+  h3 {
+    font-size: 1.3rem;
+    padding-top: 0.5rem;
+    margin: 1rem 1rem 0.5rem;
+  }
+
+  p {
+    margin: 0.3rem 1rem;
+  }
+
+  .real-ad-surface {
+    margin-left: 0;
+    font-weight: 700;
+
+    &::before {
+      content: "•";
+      margin-right: 1rem;
+    }
+  }
+
+  .real-ad-price {
+    font-size: 1.4rem;
+  }
+
+  .real-ad-description {
+    padding: 0.5rem 0;
+  }
+
+  .real-ad-source {
+    border-top: 1px solid $colorLighterGrey;
+    padding: 0.5rem 0;
+
+    a {
+      color: $colorDarkRed;
+      font-weight: 700;
+      background-color: $colorLighterGrey;
+      text-decoration: none;
+      padding: 0.1rem 0.4rem 0.2rem;
+      cursor: pointer;
+
+      &:hover {
+        color: $colorPetrolDarker;
+      }
+    }
+  }
+
+  .real-ad-date {
+    text-align: right;
+    color: #9e9e9e;
+  }
 }
 
-.real-ad-sm-pics img {
-    height: 100px;
-    padding: .1rem .2rem;
+// PAGINATION
+.pagination-container {
+  padding: 0 0 0.8rem;
+
+  .ads-number {
+    font-weight: 700;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  button {
+    font-family: $fontLatoSans;
+    font-size: 0.9rem;
+    color: #000000;
+    background-color: $colorLightGrey;
+    margin: 0.5rem 0.25rem;
+    padding: 0.5rem 0.8rem;
+  }
+
+  .page-number {
+    font-weight: 700;
+    border-radius: 4px;
+    box-shadow: rgb(204, 209, 217) 0 0 5px;
+  }
+
+  .clicked-display {
+    background-color: $colorDarkRed;
+    border-color: $colorDarkRed;
+    color: #ffffff;
+  }
+}
+
+// MESSAGE
+.message {
+  font-family: $fontBaskervilleSerif;
+  font-size: $fontSizeBig;
+  text-align: center;
+  margin: 5rem;
+}
+
+// FOOTER
+footer {
+  margin: 0;
+  width: 100%;
+  height: 5vh;
+  background-color: $colorPetrol;
+
+  p {
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+      "Lucida Sans", Arial, sans-serif;
+    font-size: 0.8rem;
+    color: #ffffff;
+    font-weight: 300;
+    margin: 0 1rem;
+  }
+}
+
+/* For medium devices (portrait tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  // HEADER
+  header {
+    .title {
+      h1 {
+        font-size: 6rem;
+      }
+    }
+  }
+
+  // SEARCH
+  .search-engine-container {
+    margin: 0 7rem;
+
+    .options-container {
+      margin: 0 0.5rem;
+    }
+  }
+
+  //ADS
+  .no-ads {
+    p {
+      font-size: 1.2rem;
+    }
+  }
+
+  .real-ad-sm-pic {
+    img {
+      height: 250px;
+      width: auto;
+    }
+  }
+}
+
+/* For desktops and laptops (1024px and up): */
+@media only screen and (min-width: 1024px) {
+  .main-container {
+    margin: 0;
+  }
+
+  .contain {
+    margin: 1rem 3rem;
+  }
+
+  // NAVIGATION / CONNECT
+  nav {
+    height: 7vh;
+
+    .nav-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+
+      .nav-sub {
+        font-size: 1rem;
+        font-weight: 400;
+
+        &::before {
+          content: "-";
+          padding: 0 1rem;
+        }
+      }
+    }
+
+    .connect-container {
+      .connect-btn {
+        margin-left: 1rem;
+      }
+    }
+  }
+
+  // HEADER
+  header {
+    .title {
+      h1 {
+        font-size: 9rem;
+      }
+    }
+
+    button {
+      font-size: 1.2rem;
+      padding: 0.8rem 1rem;
+    }
+
+    .bg-welcome {
+        height: calc(100vh - 12vh);
+    }
+
+    .bg-real-ads {
+      height: 20vh;
+    }
+  }
+
+  // MAIN
+  .main-container {
+    min-height: calc(100vh - 32vh);
+  }
+
+  // SEARCHENGINE
+  .choices-container {
+    max-width: 95%;
+    margin: 0 auto 2rem;
+  }
+  .choices-container-up {
+    max-height: 7.5rem;
+  }
+  .search-engine-container {
+    margin: -5rem 0 0 0;
+    border-radius: $borderRadius;
+
+    //Datepicker
+    .DateRangePicker__Month {
+      margin: 0 1rem;
+    }
+
+    .DateRangePicker__CalendarSelection {
+      background-color: #00677f;
+      border: 1px solid #00677f;
+    }
+
+    .DateRangePicker__CalendarHighlight--single {
+      border: 1px solid #00677f;
+    }
+  }
+
+  // ADS
+  .response-count {
+    font-size: 1.3rem;
+  }
+
+  .real-ad-container {
+    max-width: 65rem;
+    margin: 2rem auto;
+    padding: 2rem;
+
+    .real-ad-sm-pics {
+      padding: 0 1rem;
+
+      .real-ad-sm-pic {
+        img {
+          height: 100px;
+          padding: 0.1rem 0.2rem;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .choices-container-up {
+    max-height: 35rem;
+  }
 }

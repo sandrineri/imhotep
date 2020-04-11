@@ -25,31 +25,30 @@ const options = [
     { value: '75018', label: '18è arrondissement' },
     { value: '75019', label: '19è arrondissement' },
     { value: '75020', label: '20è arrondissement' }
-]
+];
+
 
 const AreaChooser = (props) => {
-    //console.log('AreaChooser props: ', props);
-
     const getSearchAreaValue = (values) => {
-        if (values !== null)
-            props.setSearchArea( values.map(value => value.value) );
-        else
-            props.setSearchArea( [] );
-    }
+        if (values !== null) props.setSearchArea(values.map(value => value.value));
+        else props.setSearchArea([]);
+    };
 
     return (
-        <div className="options-container">
+        <div className="option-container">
             <Select
+                className="select"
                 isClearable
-                placeholder={'Sélectionnez le(s) arrondissements souhaité(s)'}
+                placeholder="Sélectionnez le(s) arrondissement(s) souhaité(s)"
                 closeMenuOnSelect={false}
                 components={animatedComponents}
                 isMulti
                 options={options}
+                noOptionsMessage={() => null}
                 onChange={(values) => getSearchAreaValue(values)}
             />
         </div>
-    )
-}
+    );
+};
 
 export default AreaChooser;
