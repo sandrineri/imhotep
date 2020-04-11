@@ -9,7 +9,7 @@ configure({ adapter: new Adapter() });
 
 it('displays the header correctly', () => {
     const header = shallow(<Header />);
-    
+
     expect(header.contains(
         <h1>Annonces immobilières</h1>
     )).toEqual(true);
