@@ -10,7 +10,7 @@ const RealEstateAds = (props) => {
         return (
             <article className="real-estate-ads-container" id="real-estate-ads">
                 <div>
-                    <p>Aucune annonce ne correspond à votre recherche...</p>
+                    <p>Aucune annonce ne correspond à votre recherche</p>
                 </div>
             </article>
         );

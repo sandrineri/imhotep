@@ -46,6 +46,7 @@ const AreaChooser = (props) => {
                 components={animatedComponents}
                 isMulti
                 options={options}
+                noOptionsMessage={() => null}
                 onChange={(values) => getSearchAreaValue(values)}
             />
         </div>

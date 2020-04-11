@@ -35,7 +35,7 @@ const App = () => {
     // Set state from API
     useEffect(() => {
         //console.log(inputSearchValue);
-        fetch(`${settings.apiBasePath}?keywords=${JSON.stringify(inputSearchValue)}&startDate="${adDate.startDate}"&endDate="${adDate.endDate}"&minRentPrice=${rentPrice.minRentPrice}&maxRentPrice=${rentPrice.maxRentPrice}&minBuyPrice=${buyPrice.minBuyPrice}&maxBuyPrice=${buyPrice.maxBuyPrice}&minSurface=${size.min}&maxSurface=${size.max}&cp=[]&providers=[]`)
+        fetch(`${settings.apiBasePath}?keywords=${JSON.stringify(inputSearchValue)}&startDate="${adDate.startDate}"&endDate="${adDate.endDate}"&minRentPrice=${rentPrice.minRentPrice}&maxRentPrice=${rentPrice.maxRentPrice}&minBuyPrice=${buyPrice.minBuyPrice}&maxBuyPrice=${buyPrice.maxBuyPrice}&minSurface=${size.min}&maxSurface=${size.max}&cp=${JSON.stringify(searchArea)}&providers=${JSON.stringify(providers)}`)
             .then(response => response.json())
             .then((response) => {
                 //console.log('fetch complete', response);

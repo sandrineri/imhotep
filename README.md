@@ -42,9 +42,9 @@ TODO :
         [] afficher les markers en prenant en compte la géolocalisation des annonces (pas encore fait côté API)
 - ARRONDISSEMENTS :
     [x] corriger le bug quand on retire tous les arrondissements [S]
-    [] rendre actif le select d'arrondissement, en utilisant le parametre d'api "cp" [S]
+    [x] rendre actif le select d'arrondissement, en utilisant le parametre d'api "cp" [S]
 - FOURNISSEURS :
-    [] ajouter un filtre de sources d'annonces, en utilisant le parametre d'api "providers" (seulement seloger pour le moment) [S]
+    [x] ajouter un filtre de sources d'annonces, en utilisant le parametre d'api "providers" (seulement seloger pour le moment) [S]
 - AUTHENTIFICATION :
     [] permettre a un utilisateur de se loguer (a voir ensemble)
 - TESTS :
