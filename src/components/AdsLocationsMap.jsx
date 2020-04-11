@@ -41,8 +41,8 @@ const AdsLocationsMap = (props) => {
                 google={props.google} 
                 zoom={12} style={style}
                 initialCenter={{
-                    lat: 48.8534,
-                    lng: 2.3488
+                    lat: 48.8586,
+                    lng: 2.3426
                 }}
             >
                 {props.realEstateHitsArray.map((ad) => {
