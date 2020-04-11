@@ -4,35 +4,35 @@ import RealEstateAd from './RealEstateAd';
 const RealEstateAds = (props) => {
     //console.log('RealEstateAds props: ', props);
     //console.log("inputSearchValue props: ", props.inputSearchValue);
-    
+
     // Manage initial state (empty state)
-    if (props.realEstateHitsArray.length === 0) {
+    if (props.realEstateAdsArray.length === 0) {
         return (
-            <article className="real-estate-ads-container" id="real-estate-ads">
-                <div>
-                    <p>Aucune annonce ne correspond à votre recherche...</p>
+            <React.Fragment>
+                <div className="no-ads">
+                    <p>Aucune annonce ne correspond à la recherche</p>
                 </div>
-            </article>
+            </React.Fragment>
         );
     }
 
     return (
-        <article className="real-estate-ads-container" id="real-estate-ads">
-            <h2>
+        <React.Fragment>
+            <div className="response-count">
                 <span>
-                    {props.realEstateHitsArray.length}&nbsp;
-                </span> 
+                    {props.adsCount}&nbsp;
+                </span>
                 annonces trouvées pour&nbsp;
                 <span>
                     {props.inputSearchValue.join(', ')}&nbsp;{props.searchArea.join(', ')}
                 </span>
-            </h2>
-            
-            <div>
-                {props.realEstateHitsArray.map((ad => (<RealEstateAd key={ad._id} ad={ad} />)))}
             </div>
-        </article>
-    )
-}
+
+            <div className="real-ads-container">
+                {props.realEstateAdsArray.map((ad => (<RealEstateAd key={ad._id} ad={ad} />)))}
+            </div>
+        </React.Fragment>
+    );
+};
 
 export default RealEstateAds;

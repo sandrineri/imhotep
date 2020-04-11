@@ -2,34 +2,242 @@
     box-sizing: border-box;
 }
 
+.display-none {
+    display: none;
+}
 
-// SEARCHENGINE
-// .search-engine-container {
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-// }
+.display-flex {
+    display: flex;
+}
 
-// .searchbar-container {
-//     display: flex;
-//     justify-content: center;
-// }
 
-// .options-container {
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: center;
-//     align-items: center;
-// }
+// NAVIGATION / CONNECT
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    top: 0;
 
-// .option-container {
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: center;
-//     align-items: center;
-// }
+    .nav-sub {
+        display: none;
+    }
 
-// .option-input {
-//     display: flex;
-//     flex-direction: column;
-// }
+    .nav-sub-active {
+        display: block;
+    }
+
+    .connect-container {
+        display: flex;
+    }
+}
+
+
+// HEADER
+header {
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    grid-template-rows: 10% 80% 10%;
+
+    .bg {
+        grid-area: 1 / 1 / 4 / 4;
+        z-index: -1;
+    }
+
+    .title {
+        grid-area: 2 / 2 / 3 / 3;
+        justify-self: center;
+    }
+}
+
+
+// SEARCH 
+.search-engine-container {
+    flex: 1.5;
+
+    .option-container {
+        flex: 1;
+    
+        .option-sub {
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    .DateRangePicker {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+// NOTIFICATION MANAGER
+.notif-alert {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.notif-btn {
+    display: flex;
+    justify-content: center;
+}
+
+
+// CLOSE SEARCH OPTION BUTTON
+.close-options,
+.choices-arrow-up {
+    display: flex;
+    justify-content: center;
+}
+
+
+// MAP
+.map-container,
+.map {
+    display: none;
+}
+
+
+//ADS
+.real-ad-container {
+    .real-ad-sm-pic {
+        display: none;
+    }
+
+    .real-ad-sm-pic:first-of-type {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .real-ad_inline {
+        display: flex;
+    }
+}
+
+
+// PAGINATION
+.pagination-container {
+    display: flex;
+    justify-content: center;
+
+    p {
+        text-align: center;
+    }
+
+    .pagination-btns {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+
+// FOOTER
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/* For medium devices (portrait tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    // HEADER
+    header {
+        grid-template-rows: 20% 60% 20%;
+    }
+
+    // SEARCH
+    .search-engine-container {
+        display: flex;
+        flex-direction: column;
+
+        .date-chooser {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .option-sub {
+            align-self: flex-start;
+        }
+    }
+
+    // ADS
+    .real-ad-container {
+        .real-ad-texts {
+            flex: 1;
+        }
+    }
+
+}
+
+
+/* For desktops and laptops (1024px and up): */
+@media only screen and (min-width: 1024px){
+    // NAVIGATION / CONNECT
+    nav {
+        .nav-title {
+            display: flex;
+            align-items: center;
+
+            .nav-sub {
+                display: flex;
+            }
+        }
+    }
+    
+    // SEARCH 
+    .choices-container {
+        //display: flex;
+        justify-content: center;
+
+        // DATECHOOSER
+        .date-chooser {
+            justify-content: center;
+        }
+
+        .chosen-dates {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .DateRangePicker {
+            flex-direction: row;
+            justify-content: center;
+        }
+    }
+
+    .map-container,
+    .map {
+        display: flex;
+        justify-content: center;
+    }
+    
+    // ADS
+    .real-ad-container {
+        .real-ad-sm-pics {
+            display: flex;
+            flex-flow: row wrap;
+            align-items: center;
+
+            .real-ad-sm-pic {
+                display: flex;
+                
+                .pic-text {
+                    display: none;
+                }
+            }
+        }
+
+        .real-ad-texts {
+            flex: 1;
+        }
+    }
+}
+
+@media only screen and (min-width: 1280px){
+    .choices-container {
+        display: flex;
+    }
+}

@@ -3,10 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@auth0/auth0-spa-js": "^1.6.5",
     "chart.js": "^2.9.3",
     "date-fns": "^2.10.0",
     "fslightbox-react": "^1.4.9",
     "google-maps-react": "^2.0.2",
+    "history": "^5.0.0",
     "moment": "^2.24.0",
     "moment-range": "^4.0.2",
     "node-sass": "^4.13.1",
@@ -14,6 +16,7 @@
     "react": "^16.8.6",
     "react-daterange-picker": "^2.0.1",
     "react-dom": "^16.8.6",
+    "react-router-dom": "^5.1.2",
     "react-scripts": "^3.0.0",
     "react-select": "^3.1.0",
     "whatwg-fetch": "^3.0.0"
@@ -22,7 +25,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --testPathIgnorePatterns=src/__tests__/mocks --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint -c .eslintrc.js --fix ./src"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -31,7 +35,8 @@
     ">0.2%",
     "not dead",
     "not ie <= 11",
-    "not op_mini all"
+    "not op_mini all",
+    "ios_saf 9.3"
   ],
   "devDependencies": {
     "babel-eslint": "^10.1.0",
@@ -39,6 +44,7 @@
     "eslint": "6.6.0",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.19.0"
   }
 }
